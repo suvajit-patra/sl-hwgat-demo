@@ -1,6 +1,5 @@
 import numpy as np
 from typing import List, Optional, Union
-import cv2
 from mmpose.apis import inference_topdown, init_model
 from mmpose.utils import register_all_modules
 

@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-import numpy as np
 from timm.models.layers import trunc_normal_
 from torch.autograd import Variable
 import math
