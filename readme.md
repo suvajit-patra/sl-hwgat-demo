@@ -15,7 +15,7 @@ This repository contains a Sign Language Recognition System using the HWGAT mode
 The Sign Language Recognition System leverages the HWGAT (Hierarchical Windowed Graph Attention Network) model to recognize sign language gestures. The system provides a notebook demo for testing the model with sample data and a Flask web application API for making web based application.
 
 ## Installation
-Clone this repository and install the necessary dependencies.
+1. Clone this repository and install the necessary dependencies.
 
 ```bash
 git clone https://github.com/yourusername/sl-hwgat-demo.git
@@ -23,7 +23,7 @@ cd sl-hwgat-demo
 pip install -r requirements.txt
 ```
 
-Get the pretrained model and sign class map from [here]() and update the `save_model_path` and `class_map_path` in the `demo_utils.py` file.
+2. Get the pretrained model and sign class map from [here]() and update the `save_model_path` and `class_map_path` in the `demo_utils.py` file.
 
 ## Usage
 
