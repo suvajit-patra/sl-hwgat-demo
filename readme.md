@@ -17,11 +17,11 @@ The Sign Language Recognition System leverages the HWGAT (Hierarchical Windowed 
 ## Installation
 1. Clone this repository and install the necessary dependencies.
 
-```bash
-git clone https://github.com/yourusername/sl-hwgat-demo.git
-cd sl-hwgat-demo
-pip install -r requirements.txt
-```
+    ```bash
+    git clone https://github.com/yourusername/sl-hwgat-demo.git
+    cd sl-hwgat-demo
+    pip install -r requirements.txt
+    ```
 
 2. Get the pretrained model and sign class map from [here]() and update the `save_model_path` and `class_map_path` in the `demo_utils.py` file.
 
@@ -38,9 +38,9 @@ The Flask web application API provides an interface for making web based sign la
 
 1. Run the Flask application.
 
-```
-python app.py
-```
+    ```
+    python app.py
+    ```
 
 2. Make web application use the API endpoint `http://127.0.0.1:5000/upload` for sign language recognition.
 
