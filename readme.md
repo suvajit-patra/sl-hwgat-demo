@@ -50,8 +50,8 @@ The HWGAT model is a Hierarchical Windowed Graph Attention Network, designed for
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
---
+---
 
 Thank you for using this repository. For any questions or support, please open an issue in this repository.
 
---
+---
