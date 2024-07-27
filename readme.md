@@ -1,3 +1,8 @@
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hierarchical-windowed-graph-attention-network/sign-language-recognition-on-fdmse-isl)](https://paperswithcode.com/sota/sign-language-recognition-on-fdmse-isl?p=hierarchical-windowed-graph-attention-network)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hierarchical-windowed-graph-attention-network/sign-language-recognition-on-lsa64)](https://paperswithcode.com/sota/sign-language-recognition-on-lsa64?p=hierarchical-windowed-graph-attention-network)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hierarchical-windowed-graph-attention-network/sign-language-recognition-on-autsl)](https://paperswithcode.com/sota/sign-language-recognition-on-autsl?p=hierarchical-windowed-graph-attention-network)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hierarchical-windowed-graph-attention-network/sign-language-recognition-on-wlasl-2000)](https://paperswithcode.com/sota/sign-language-recognition-on-wlasl-2000?p=hierarchical-windowed-graph-attention-network)
+
 # Sign Language Recognition System
 
 This repository contains a Sign Language Recognition System using the HWGAT model. It includes a Jupyter Notebook demo for model inference for sign language recognition and a Flask web application API.
