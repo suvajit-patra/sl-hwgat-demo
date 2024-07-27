@@ -23,7 +23,7 @@ The Sign Language Recognition System leverages the HWGAT (Hierarchical Windowed 
     pip install -r requirements.txt
     ```
 
-2. Get the pretrained model and sign class map from [here]() and update the `save_model_path` and `class_map_path` in the `demo_utils.py` file.
+2. Get the pretrained model and sign class map from [here](https://drive.google.com/file/d/1UlR1MBgmPRezvZ3n191tyOdtZL4cTbdx/view?usp=sharing) and update the `save_model_path` and `class_map_path` in the `demo_utils.py` file.
 
 ## Usage
 
