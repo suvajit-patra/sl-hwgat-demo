@@ -55,6 +55,20 @@ The HWGAT model is a Hierarchical Windowed Graph Attention Network, designed for
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+## Citation
+If you find this project useful in your research, please consider cite:
+```bibtex
+@misc{patra2024hierarchicalwindowedgraphattention,
+      title={Hierarchical Windowed Graph Attention Network and a Large Scale Dataset for Isolated Indian Sign Language Recognition}, 
+      author={Suvajit Patra and Arkadip Maitra and Megha Tiwari and K. Kumaran and Swathy Prabhu and Swami Punyeshwarananda and Soumitra Samanta},
+      year={2024},
+      eprint={2407.14224},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2407.14224}, 
+}
+```
+
 ---
 
 Thank you for using this repository. For any questions or support, please open an issue in this repository.
