@@ -1,0 +1,122 @@
+html {
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #080808;
+    text-align: center;
+}
+
+body {
+    background-color: #baecff;
+    margin: auto;
+    max-width: 700px;
+    margin-bottom: 50px;
+}
+
+h2 {
+    width: max-content;
+    padding: 10px;
+    text-align: start;
+    border: 2px solid #00b9ff;
+    margin-bottom: -0px;
+}
+
+button {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 10px;
+    width: 100%;
+}
+
+#Title {
+    border: 2px solid #00b9ff;
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+#results-panel p {
+    padding: 10px;
+    border: 2px solid #080808;
+}
+
+#settings-panel p {
+    display: inline-block;
+    text-align: start;
+    width: 200px;
+}
+
+#top_k_value, #record_duration_value {
+    text-align: center !important;
+}
+
+input {
+    width: auto;
+}
+
+#settings-panel, #video-panel, #results-panel, #footer-panel, #publication-panel {
+    width: 100%;
+    border: 2px solid #00b9ff;
+    padding: 20px;
+}
+
+#video {
+    display: none; /* Hide the video element */
+}
+
+#video-feed {
+    width: 640px;
+    height: 480px;
+    margin: auto;
+    position: relative;
+}
+
+#canvas{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+}
+
+#countdown {
+    width: 600px;
+    height: 440px;
+    text-align: start;
+    position: absolute;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    font-size: 100px;
+    text-shadow: 2px 2px 4px black;
+}
+
+#processing-window {
+    padding: 20px;
+    display: none;
+}
+
+.pubs ul {
+    list-style-type: "📄";
+}
+
+.pub-element .title {
+    font-size: 1.1em;
+    margin-bottom: -10px;
+}
+
+.cite {
+    margin-top: 20px;
+    display: none;
+    width: 100%;
+    height: 8rem;
+}
+
+#footer-panel {
+    margin-top: 20px;
+}

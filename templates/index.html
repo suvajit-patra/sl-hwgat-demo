@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ISL Word Recognition App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="Header">
+        <h1 id="Title">ISL Word Recognition Application</h1>
+    </div>
+    <h2>Settings</h2>
+    <div id="settings-panel">
+        <form method="POST" action="/settings">
+            <p for="top_k">Top K:</p>
+            <input type="range" id="top_k" name="top_k" min="1" max="10" value="{{ top_k }}">
+            <p id="top_k_value"></p>
+            <br>
+            <p for="record_duration">Record Duration:</p>
+            <input type="range" id="record_duration" name="record_duration" min="1" max="10" value="{{ record_duration }}">
+            <p id="record_duration_value"></p>
+            <br>
+            <button type="submit">Apply Settings</button>
+        </form>
+    </div>
+    <h2>Video Feed</h2>
+    <div id="video-panel">
+        <div id="video-feed">
+            <video id="video" width="640" height="480" autoplay></video>
+            <canvas id="canvas" width="640" height="480"></canvas>
+            <div id="countdown"></div>
+        </div>
+        <button id="record-btn">Record</button>
+    </div>
+    <div id="processing-window">
+        <img src="{{ url_for('static', filename='images/loading.gif') }}" alt="processing">
+        <p>Processing...</p>
+    </div>
+    <h2>Top {{ top_k }} Predictions</h2>
+    <div id="results-panel">
+        <div id="result-list"></div>
+    </div>
+    <h2>Publications</h2>
+    <div class="pubs" id="publication-panel">
+        <ul>
+            <li>
+                <div class="pub-element">
+                    <p class="title"><b>Hierarchical Windowed Graph Attention Network and a Large Scale Dataset for Isolated Indian Sign Language Recognition</b></p>
+                    <p>
+                        <a href="https://in.linkedin.com/in/suvajit-patra">Suvajit Patra</a>, 
+                        <a href="https://arkadip-maitra.github.io">Arkadip Maitra</a>, 
+                        Megha Tiwari,
+                        K. Kumaran,
+                        Swathy Prabhu,
+                        Swami Punyeshwarananda, 
+                        <a href="https://cs.rkmvu.ac.in/~soumitra/">Soumitra Samanta</a><br>
+                        ARXIV, 2024
+                    </p>
+                    <div class="pub-element-links">
+                        <a href="https://arxiv.org/abs/2407.14224">Paper (arXiv)</a>
+                        <a href="https://github.com/suvajit-patra/sl-hwgat">Code</a>
+                        <a href="https://github.com/suvajit-patra/sl-hwgat-demo">Demo</a>
+                        <a onclick="showAlert('To request access to our dataset, please send an email to suvajit.patra.cs20@gm.rkmvu.ac.in and kindly include Full Name, Institution, Purpose of Use. You must send the email from your institution email id.')">Dataset</a>
+                        <a onclick="toggleCitationBox('cite0')">Cite</a>
+                        <textarea disabled="" class="cite" name="cite0" id="cite0">@misc{patra2024hierarchicalwindowedgraphattention,
+title={Hierarchical Windowed Graph Attention Network and a Large Scale Dataset for Isolated Indian Sign Language Recognition}, 
+author={Suvajit Patra and Arkadip Maitra and Megha Tiwari and K. Kumaran and Swathy Prabhu and Swami Punyeshwarananda and Soumitra Samanta},
+year={2024},
+eprint={2407.14224},
+archivePrefix={arXiv},
+primaryClass={cs.CV},
+url={https://arxiv.org/abs/2407.14224}, 
+}
+                        </textarea>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="footer-panel">
+        <p>© Copyright 2024 by <a href="https://cs.rkmvu.ac.in/">CS, RKMVERI, Belur</a>. Developed by <a href="https://in.linkedin.com/in/suvajit-patra">Suvajit Patra</a>. All Rights Reserved.</p>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
