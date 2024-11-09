@@ -110,4 +110,4 @@ if __name__ == '__main__':
     feature_process = Thread(target=get_frame_feature)
     feature_process.daemon = 1
     feature_process.start()
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=False, host='0.0.0.0', port=5000, ssl_context="adhoc")
