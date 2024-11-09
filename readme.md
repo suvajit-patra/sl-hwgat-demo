@@ -44,7 +44,7 @@ The Flask web application API provides an interface for making web based sign la
 1. Run the Flask application.
 
     ```
-    python app.py
+    python api_app.py
     ```
 
 2. Make web application use the API endpoint `http://127.0.0.1:5000/upload` for sign language recognition.
