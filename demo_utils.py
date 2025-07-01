@@ -3,7 +3,7 @@ from pose_modules.Mediapipe import Model
 from decord import VideoReader, cpu
 import numpy as np
 from data_transform import *
-from models.model_params import HWGATParams
+from models.model_params import HWGATEParams
 
 class CFG():
     def __init__(self):
@@ -13,14 +13,14 @@ class CFG():
         self.feature_type = 'keypoints'
         self.input_dim = 2
 
-        self.model_type = 'HWGAT'
+        self.model_type = 'HWGATE'
 
         self.device = torch.device(
             f"cuda:{cuda_id}" if torch.cuda.is_available() else "cpu")
 
         print("Running on device = ", self.device)
 
-        self.model_params = HWGATParams({'num_class' : 2002, 'src_len' : 192}, self.input_dim, self.device)
+        self.model_params = HWGATEParams({'num_class' : 2002, 'src_len' : 192}, self.input_dim, self.device)
 
         self.batch_size = 1
 
@@ -41,8 +41,8 @@ class CFG():
                                                             WindowCreate(self.src_len),
                                                             ])
         
-        self.class_map_path = 'input/FDMSE/class_map_FDMSE.csv'
-        self.save_model_path = 'output/FDMSE/HWGAT_240402_1556/model_best_loss.pt'
+        self.class_map_path = 'input/class_map_FDMSE.csv'
+        self.save_model_path = 'input/model_best_loss.pt'
 
 def get_video_features(vid_name) -> list:
     pose_model = Model()

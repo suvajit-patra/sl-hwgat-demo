@@ -1,4 +1,7 @@
 *.csv
 *.pt
 *.pyc
+*.zip
 app_multi.py
+gunicorn_config.py
+__pycache__

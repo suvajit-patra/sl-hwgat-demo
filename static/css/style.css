@@ -1,29 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee:&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 html {
-    font-family: "Raleway", sans-serif;
-    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
     font-size: 20px;
     color: #080808;
     text-align: center;
 }
 
 body {
-    background-color: #baecff;
+    background-color: #f8fcff;
     margin: auto;
     max-width: 700px;
     margin-bottom: 50px;
 }
 
 h2 {
+    font-family: "Bungee";
+    font-weight: 300;
     width: max-content;
     padding: 10px;
     text-align: start;
-    border: 2px solid #00b9ff;
+    border: 2px solid dodgerblue;
+    color: white;
+    background-color: dodgerblue;
     margin-bottom: -0px;
 }
 
 button {
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
+    font-family: "Bungee";
+    font-weight: 500;
     margin-top: 10px;
     font-size: 15px;
     padding: 10px;
@@ -31,7 +38,11 @@ button {
 }
 
 #Title {
-    border: 2px solid #00b9ff;
+    font-family: "Bungee";
+    font-weight: 300;
+    color: white;
+    background-color: dodgerblue;
+    border: 2px solid dodgerblue;
     margin-top: 50px;
     text-align: center;
     width: 100%;
@@ -59,7 +70,7 @@ input {
 
 #settings-panel, #video-panel, #results-panel, #footer-panel, #publication-panel {
     width: 100%;
-    border: 2px solid #00b9ff;
+    border: 2px solid dodgerblue;
     padding: 20px;
 }
 

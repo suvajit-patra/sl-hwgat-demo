@@ -2,16 +2,15 @@ import numpy as np
 import torch.nn as nn
 import torch
 
-class HWGATParams():
+class HWGATEParams():
     def __init__(self, dataset_params, input_dim, device=None) -> None:
         self.kp_dim=input_dim
         self.num_kps=64
         self.temporal_dim=dataset_params['src_len']
         self.num_classes=dataset_params['num_class']
         self.embed_dim=128
-        self.embed_dim_inc_rate=2
         self.temporal_patch_size=2
-        self.ape=True
+        self.pe=True
         self.depths=[4, 4, 8]
         self.num_heads=[2, 4, 8]
         self.window_size=16
@@ -19,7 +18,6 @@ class HWGATParams():
         self.attn_drop_rate=0.0
         self.ff_ratio=2.
         self.norm_layer=nn.LayerNorm
-        self.kp_norm=True
         self.device=device
 
         self.edges = [[
@@ -132,28 +130,28 @@ class HWGATParams():
                     [7, 13]
                 ],]
 
-        self.edge_bias = torch.tensor(self.get_edge_bias(), dtype=torch.float32)
+        self.adj_mat = torch.tensor(self.get_adj_mat(), dtype=torch.float32)
     
-    def get_edge_bias(self):
+    def get_adj_mat(self):
         TP, W, K = self.temporal_patch_size, self.window_size, self.num_kps
-        edge_bias_adj = [self.get_adj(i) for i in range(len(self.edges))]
-        edge_bias = []
+        adj_mat_adj = [self.get_adj(i) for i in range(len(self.edges))]
+        adj_mat = []
         for w in range(K//W):
-            edge_bias_w = []
+            adj_mat_w = []
             for i in range(TP):
-                edge_bias_r = []
+                adj_mat_r = []
                 for j in range(TP):
                     if i==j:
-                        edge_bias_r.append(edge_bias_adj[w])
+                        adj_mat_r.append(adj_mat_adj[w])
                     elif abs(i-j) == 1.0:
-                        edge_bias_r.append(np.eye(W))
+                        adj_mat_r.append(np.eye(W))
                     else:
-                        edge_bias_r.append(np.zeros((W, W)))
-                edge_bias_w.append(np.concatenate(edge_bias_r, axis=1))
-            edge_bias.append(np.concatenate(edge_bias_w))
-        edge_bias = np.array(edge_bias)
+                        adj_mat_r.append(np.zeros((W, W)))
+                adj_mat_w.append(np.concatenate(adj_mat_r, axis=1))
+            adj_mat.append(np.concatenate(adj_mat_w))
+        adj_mat = np.array(adj_mat)
 
-        return edge_bias
+        return adj_mat
 
     def get_adj(self, index):
         temp = np.eye(self.window_size)
@@ -164,5 +162,4 @@ class HWGATParams():
         return temp
     
     def get_model_params(self):
-        return self.kp_dim, self.num_kps, self.temporal_dim,self.num_classes,self.embed_dim,self.embed_dim_inc_rate,self.temporal_patch_size,self.ape,self.depths,self.num_heads,self.window_size,self.edge_bias,self.drop_rate,self.attn_drop_rate,self.ff_ratio,self.norm_layer,self.kp_norm,self.device
-
+        return self.kp_dim, self.num_kps, self.temporal_dim,self.num_classes,self.embed_dim,self.temporal_patch_size,self.pe,self.depths,self.num_heads,self.window_size,self.adj_mat,self.drop_rate,self.attn_drop_rate,self.ff_ratio,self.norm_layer,self.device
