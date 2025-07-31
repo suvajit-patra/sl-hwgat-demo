@@ -23,7 +23,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['UPLOAD_FOLDER'] = 'uploads/'
 app.config['OUTPUT_LEN'] = 5
-app.config['FILE_NAME'] = 'tmp.mp4'
+app.config['FILE_NAME'] = 'tmp'
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # 5 MB max size limit
 
 # Ensure the upload folder exists
@@ -40,8 +40,19 @@ def upload_file():
         return jsonify({'message': 'No selected file'}), 400
 
     if file:
-        # filename = secure_filename(file.filename)
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], app.config['FILE_NAME'])
+        # Get the extension (e.g., '.webm', '.mp4')
+        _, ext = os.path.splitext(file.filename)
+        ext = ext.lower()
+
+        # Optional: validate allowed extensions
+        allowed_extensions = {'.webm', '.mp4', '.mov', '.avi'}
+        if ext not in allowed_extensions:
+            return jsonify({'message': f'Unsupported file extension: {ext}'}), 400
+
+        # Construct file path with correct extension
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], app.config['FILE_NAME'] + ext)
+
+        # Save file
         file.save(file_path)
 
         # recognise video
@@ -58,4 +69,4 @@ def upload_file():
     return jsonify({'message': 'File upload failed'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0', port=5000)

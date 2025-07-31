@@ -1,6 +1,6 @@
+import av
 import torch
 from pose_modules.Mediapipe import Model
-from decord import VideoReader, cpu
 import numpy as np
 from data_transform import *
 from models.model_params import HWGATEParams
@@ -44,25 +44,29 @@ class CFG():
         self.class_map_path = 'input/class_map_FDMSE.csv'
         self.save_model_path = 'input/model_best_loss.pt'
 
+def extract_frames(path):
+    container = av.open(path)
+    frames = []
+    for frame in container.decode(video=0):
+        img = frame.to_ndarray(format='rgb24')
+        frames.append(img)
+    return frames
+
 def get_video_features(vid_name) -> list:
     pose_model = Model()
     kp_shape = (543, 4)
 
-    if type(vid_name) is str:
-        cap = VideoReader(vid_name, ctx=cpu(0))
-    else:
-        cap = VideoReader(vid_name, ctx=cpu(0))
+    frames = extract_frames(vid_name)
 
-    num_frames = len(cap)
-    vid_height, vid_width = cap[0].shape[:2]
+    num_frames = len(frames)
+    vid_height, vid_width = frames[0].shape[:2]
 
     features = np.zeros((num_frames, *kp_shape))
-
     i_th_frame = 0
 
-    for image in cap:
+    for frame in frames:
         # saving the i-th frame feature
-        features[i_th_frame] = pose_model(image.asnumpy())[0]
+        features[i_th_frame] = pose_model(frame)[0]
         i_th_frame += 1
 
     return vid_name, features, i_th_frame, vid_width, vid_height

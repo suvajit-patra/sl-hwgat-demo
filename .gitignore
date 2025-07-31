@@ -2,6 +2,10 @@
 *.pt
 *.pyc
 *.zip
+*.mp4
+*.webm
+*.mov
+*.avi
 app_multi.py
 gunicorn_config.py
 __pycache__
